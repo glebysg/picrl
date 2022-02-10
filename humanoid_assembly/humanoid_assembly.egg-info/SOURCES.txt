@@ -1,0 +1,6 @@
+setup.py
+humanoid_assembly.egg-info/PKG-INFO
+humanoid_assembly.egg-info/SOURCES.txt
+humanoid_assembly.egg-info/dependency_links.txt
+humanoid_assembly.egg-info/requires.txt
+humanoid_assembly.egg-info/top_level.txt
