@@ -1,7 +1,6 @@
 import numpy as np
 from gym.envs.mujoco import mujoco_env
 from gym import utils
-from  humanoid_assembly.envs.humanoid_assembly_env import HumanoidAssemblyEnv
 
 
 DEFAULT_CAMERA_CONFIG = {
@@ -203,7 +202,8 @@ class HumanoidAssemblyEnv(mujoco_env.MujocoEnv, utils.EzPickle):
 
     def __init__(
         self,
-        xml_file="/Users/glebysgonzalez/Purdue/picrl/humanoid_assembly/humanoid_assembly/envs/humanoid_assembly.xml",
+        # xml_file="/Users/glebysgonzalez/Purdue/picrl/humanoid_assembly/humanoid_assembly/envs/humanoid_assembly.xml",
+        xml_file="humanoid_assembly.xml",
         forward_reward_weight=1.25,
         ctrl_cost_weight=0.1,
         contact_cost_weight=5e-7,
