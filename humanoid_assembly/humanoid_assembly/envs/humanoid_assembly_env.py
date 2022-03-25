@@ -203,7 +203,7 @@ class HumanoidAssemblyEnv(mujoco_env.MujocoEnv, utils.EzPickle):
     def __init__(
         self,
         # xml_file="/Users/glebysgonzalez/Purdue/picrl/humanoid_assembly/humanoid_assembly/envs/humanoid_assembly.xml",
-        xml_file="humanoid_assembly.xml",
+        xml_file="assembly.xml",
         forward_reward_weight=1.25,
         ctrl_cost_weight=0.1,
         contact_cost_weight=5e-7,
@@ -215,6 +215,7 @@ class HumanoidAssemblyEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         exclude_current_positions_from_observation=True,
     ):
         utils.EzPickle.__init__(**locals())
+        print("***************XML file %s*********"%xml_file)
 
         self._forward_reward_weight = forward_reward_weight
         self._ctrl_cost_weight = ctrl_cost_weight

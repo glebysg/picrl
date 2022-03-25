@@ -1,12 +1,10 @@
 import gym
 # from render_browser import render_browser
-
 # @render_browser
 def test_policy():
     env = gym.make('humanoid_assembly:assembly-v0')
     from gym import envs
     print(envs.registry.all())    # print the available environments
-
     print(env.action_space)
     print(env.observation_space)
     print(env.observation_space.high)
@@ -27,5 +25,4 @@ def test_policy():
                 print("Episode finished after {} timesteps".format(t+1))
                 break
     env.close()
-
 test_policy()
