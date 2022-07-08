@@ -11,8 +11,6 @@ class Arm():
                     you must use one of the following:\
                     'ik', 'velocity', 'force'")
         self.joint_mode = joint_mode
-        # set the joint mode
-        se
         # check the integrity of the list
         try:
             joint_names[0]
@@ -21,6 +19,8 @@ class Arm():
             exit(1)
         # initialize the joints
         self.joints = [Joint(j) for j in joint_names]
+        # set the joint mode
+        self.set_joint_mode()
         # initalize the arm target (only necessary for the IK mode)
         self.target = Dummy(target) if self.joint_mode == 'ik' else None
 
@@ -33,7 +33,7 @@ class Arm():
                 joint.set_joint_mode(JointMode.IK)
         # if robot is in velocity or torque mode
         else:
-            self.jointmode = 'force'
+            self.joint_mode = 'force'
             for joint in self.joints:
                 joint.set_joint_mode(JointMode.FORCE)
                 joint.set_motor_enabled(True)
@@ -42,6 +42,6 @@ class Arm():
 
     # sets joint index i  to target velocity i
     def set_joint_velocity(self, joint_index, target_velocity):
-        assert self.jointmode=='force',\
+        assert self.joint_mode=='force',\
                 'set joint in velocity mode to use this function'
-        self.joints[joint_n].set_joint_target_velocity(target_velocity)
+        self.joints[joint_index].set_joint_target_velocity(target_velocity)
