@@ -24,6 +24,11 @@ class Arm():
         # initalize the arm target (only necessary for the IK mode)
         self.target = Dummy(target) if self.joint_mode == 'ik' else None
 
+    # returns the position of the joint_index-th joint in radians
+    def get_joint_pos(self, joint_index):
+        joint = self.joints[joint_index]
+        return joint.get_joint_position()
+
     # set joint mode to the value set on
     # the variable self.joint_mode
     def set_joint_mode(self):
@@ -37,7 +42,7 @@ class Arm():
             for joint in self.joints:
                 joint.set_joint_mode(JointMode.FORCE)
                 joint.set_motor_enabled(True)
-                joint.set_motor_locked_at_zero_velocity(False)
+                joint.set_motor_locked_at_zero_velocity(True)
                 joint.set_control_loop_enabled(False)
 
     # sets joint index i  to target velocity i
