@@ -10,6 +10,9 @@ class Arm():
             raise Exception("joint mode not valid\n\
                     you must use one of the following:\
                     'ik', 'velocity', 'force'")
+        if target is None and joint_mode == 'ik':
+            raise Exception("You need to specify a target\
+                    when using IK mode")
         self.joint_mode = joint_mode
         # check the integrity of the list
         try:
@@ -50,3 +53,18 @@ class Arm():
         assert self.joint_mode=='force',\
                 'set joint in velocity mode to use this function'
         self.joints[joint_index].set_joint_target_velocity(target_velocity)
+
+class Gripper():
+    def __init__(self, joint_names):
+        pass
+
+    def open(self):
+        pass
+ 
+    def close(self):
+        pass
+
+    def set_apperture(self):
+        # Get the (thumb, wrist, index finger) angle and project the angle range to
+        # the range of joint velocities from fully closed to fully opened
+        pass
