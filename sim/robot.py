@@ -2,6 +2,7 @@ from pyrep.objects.joint import Joint
 from pyrep.const import JointMode
 from pyrep.objects.dummy import Dummy
 from pyrep.objects.object import Object
+from pyrep.robots.end_effectors.gripper import Gripper
 
 class Arm():
     def __init__(self, joint_names, target=None, joint_mode='ik'):
@@ -54,8 +55,9 @@ class Arm():
                 'set joint in velocity mode to use this function'
         self.joints[joint_index].set_joint_target_velocity(target_velocity)
 
-class Gripper():
+class RobotGripper():
     def __init__(self, joint_names):
+
         pass
 
     def open(self):
